@@ -26,6 +26,7 @@ public class GameController
     public Game move(@RequestBody Map<String,Integer> r){
         Integer i=r.get("index");
         if(i==null)
+            //comment: throw an exception if the index is not provided in the request body
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"index is required");
         try{
             return s.move(i);
